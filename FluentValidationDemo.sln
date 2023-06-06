@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentValidationDemo", "FluentValidationDemo\FluentValidationDemo.csproj", "{EE15536B-24A7-4C7B-930E-2FBD754F11E4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE15536B-24A7-4C7B-930E-2FBD754F11E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE15536B-24A7-4C7B-930E-2FBD754F11E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE15536B-24A7-4C7B-930E-2FBD754F11E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE15536B-24A7-4C7B-930E-2FBD754F11E4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {156736B0-FF50-4DB3-A86A-3B953C354133}
+	EndGlobalSection
+EndGlobal
