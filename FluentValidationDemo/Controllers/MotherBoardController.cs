@@ -1,7 +1,5 @@
-using FluentValidation.AspNetCore;
 using FluentValidationDemo.DAL;
 using FluentValidationDemo.Domain;
-using FluentValidationDemo.Validation;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FluentValidationDemo.Controllers
@@ -42,9 +40,7 @@ namespace FluentValidationDemo.Controllers
         }
 
         [HttpPost("/motherBoard/lite")]
-        public async Task<IActionResult> CreateStrict([FromQuery]
-            [CustomizeValidator(Properties = $"{ValidationModelProppety.RAMMax},{ValidationModelProppety.RAMSlots}")] 
-            MotherBoard motherBoard)
+        public async Task<IActionResult> CreateStrict([FromQuery]MotherBoard motherBoard)
         {
             try
             {
