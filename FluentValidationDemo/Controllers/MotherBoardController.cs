@@ -1,5 +1,6 @@
 using FluentValidationDemo.DAL;
 using FluentValidationDemo.Domain;
+using FluentValidationDemo.ValidationStaff;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FluentValidationDemo.Controllers
@@ -17,8 +18,8 @@ namespace FluentValidationDemo.Controllers
             _motherBoardRepository= motherBoardRepository;
         }
 
-        [HttpPost("/motherBoard/standart")]
-        public async Task<IActionResult> Create([FromQuery] MotherBoard motherBoard)
+        [HttpPost("/motherBoard/validation")]
+        public async Task<IActionResult> CreateWithValidate([FromQuery] MotherBoard motherBoard)
         {
             try
             {
@@ -39,12 +40,12 @@ namespace FluentValidationDemo.Controllers
             }
         }
 
-        [HttpPost("/motherBoard/lite")]
-        public async Task<IActionResult> CreateStrict([FromQuery]MotherBoard motherBoard)
+        [HttpPost("/motherBoard")]
+        public async Task<IActionResult> Create([FromQuery]MotherBoard motherBoard)
         {
             try
             {
-                if (ModelState.IsValid)
+                if (motherBoard.isValidModel())
                 {
                     var result = await _motherBoardRepository.AddAsync(motherBoard);
                     _logger.LogInformation("create motherboard");
