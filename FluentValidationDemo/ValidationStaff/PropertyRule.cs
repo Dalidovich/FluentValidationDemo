@@ -26,7 +26,6 @@ namespace FluentValidationDemo.ValidationStaff
             return obj;
         }
 
-
         public ErrorMessage GreatestThat(TProperty property)
         {
             var result = func(_validateModel).CompareTo(property) > 0;
