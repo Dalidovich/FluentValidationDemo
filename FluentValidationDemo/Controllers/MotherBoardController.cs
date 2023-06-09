@@ -18,20 +18,15 @@ namespace FluentValidationDemo.Controllers
             _motherBoardRepository= motherBoardRepository;
         }
 
-        [HttpPost("/motherBoard/validation")]
+        [HttpPost("/motherBoard")]
         public async Task<IActionResult> CreateWithValidate([FromQuery] MotherBoard motherBoard)
         {
             try
             {
-                if (ModelState.IsValid)
-                {
-                    var result = await _motherBoardRepository.AddAsync(motherBoard);
-                    _logger.LogInformation("create motherboard");
+                var result = await _motherBoardRepository.AddAsync(motherBoard);
+                _logger.LogInformation("create motherboard");
 
-                    return Created("/motherBoard", result);
-                }
-
-                return BadRequest();
+                return Created("/motherBoard", result);
             }
             catch (Exception ex)
             {
@@ -40,12 +35,13 @@ namespace FluentValidationDemo.Controllers
             }
         }
 
-        [HttpPost("/motherBoard")]
+        [HttpPost("/motherBoard/validation")]
         public async Task<IActionResult> Create([FromQuery]MotherBoard motherBoard)
         {
             try
             {
-                if (motherBoard.isValidModel())
+                var validResult = motherBoard.IsValidModel();
+                if (validResult.IsValid())
                 {
                     var result = await _motherBoardRepository.AddAsync(motherBoard);
                     _logger.LogInformation("create motherboard");
@@ -53,7 +49,7 @@ namespace FluentValidationDemo.Controllers
                     return Created("/motherBoard", result);
                 }
 
-                return BadRequest();
+                return BadRequest(validResult.ToString());
             }
             catch (Exception ex)
             {
